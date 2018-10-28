@@ -19,7 +19,8 @@
     "express": "^4.16.4",
     "heroku-ssl-redirect": "0.0.4",
     "morgan": "^1.9.1",
-    "nodemon": "^1.18.5"
+    "nodemon": "^1.18.5",
+    "pg": "^7.6.0"
   },
   "devDependencies": {
     "request": "^2.81.0",
