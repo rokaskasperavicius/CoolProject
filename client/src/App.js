@@ -3,6 +3,24 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      text: '',
+    }
+  }
+
+
+  componentDidMount() {
+    fetch('/login')
+      .then( res => res.json())
+      .then( log => this.setState({
+        text: log
+      })
+      );
+  }
+
+
   render() {
     return (
       <div className="App">
@@ -17,7 +35,7 @@ class App extends Component {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Learn React
+            Learn React { this.state.text }
           </a>
         </header>
       </div>

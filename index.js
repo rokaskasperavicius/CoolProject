@@ -29,6 +29,10 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.resolve(__dirname, './client/build')));
 
+app.get('/login', (req, res) => {
+  res.json(Math.random());
+})
+
 
 app.listen(PORT, () => console.log(`Listening on ${ PORT }`));
   
