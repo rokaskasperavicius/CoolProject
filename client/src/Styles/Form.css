@@ -1,0 +1,109 @@
+.text {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  font-size: 21px !important;
+  width: 100%;
+}
+
+.error-text > input::placeholder {
+  color: red !important;
+}
+
+.label {
+  font-size: 28px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.submit {
+  background-color: #32c119 !important;
+}
+
+.reset {
+  background-color: #bc0000 !important;
+}
+
+.add_book {
+  width: 130px !important;
+  float: right !important;
+  position: absolute !important;
+}
+
+.guest-form {
+  text-align: center;
+  margin-top: 100px !important;
+  font-size: 22px;
+}
+
+.form {
+  margin: auto;
+  width: 50%;
+  min-width: 320px;
+}
+
+.account-settings-form {
+  margin-top: 50px !important;
+  font-size: 22px;
+}
+
+.buttons-form {
+  display: inline-block;
+}
+
+.register, .login, .update-account, .guest {
+  width: 100% !important;
+  font-size: 22px !important;
+}
+
+.login {
+  background-color: #32c119 !important;
+  margin-top: 20px !important;
+}
+
+.register, .update-account {
+  background-color: #32c119 !important;
+  margin-top: 25px !important;
+}
+
+.login:hover {
+  transition: background-color 0.5s linear;
+  background-color: #2ba316 !important;
+}
+
+.redirect {
+  padding-top: 86px;
+}
+
+.ui.button.guest:hover {
+  transition: background-color 0.5s linear;
+}
+
+.ui.button.guest {
+  margin-top: 15px;
+}
+
+.login-title {
+  display: flex;
+  justify-content: center;
+}
+
+.book-list {
+  padding-left: unset;
+}
+
+.error {
+  font-style: italic;
+  font-weight: bold;
+  color: red;
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.password-require {
+  line-height: 25px;
+  display: flex;
+}
+

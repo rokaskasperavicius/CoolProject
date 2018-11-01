@@ -1,0 +1,57 @@
+.notification {
+  text-align: center;
+  font-weight: bold;
+  opacity: 1;
+  padding-right: 58px;
+  font-size: 22px;
+  display: flex;
+  justify-content: center;
+  border-radius: 12px;
+  -webkit-box-shadow: unset;
+  border-style: solid;
+  border-color: black;
+  margin-top: 5px;
+  font-family: 'Comic Sans MS';
+}
+
+.notification-success {
+  background-color: #65ff3a;
+  color: black;
+}
+
+.notification-error {
+  background-color: #bc0000;
+  color: white;
+}
+
+.notification-success:before {
+  display: none;
+}
+
+.notification-error:before {
+  display: none;
+}
+
+.notification-container {
+  padding: unset;
+  width: 50%;
+  margin-right: 25%;
+}
+
+@media screen and (max-width: 480px) {
+  .notification-container {
+    width: 100%;
+    margin-right: unset;
+  }
+}
+
+.notification-enter {
+  visibility: hidden;
+  transform: translate3d(0, -100%, 0);
+}
+
+.notification-leave.notification-leave-active {
+  visibility: hidden;
+  transform: translate3d(0, -100%, 0);
+  transition: all 0.4s;
+}

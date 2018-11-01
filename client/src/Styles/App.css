@@ -1,0 +1,69 @@
+.app {
+  text-align: center;
+  font-family: 'Comic Sans MS';
+}
+
+h4, h3, h2, h1 {
+  font-family: 'Comic Sans MS' !important;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.subject {
+  font-size: 26px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.subject > span {
+  cursor: pointer;
+}
+
+.subject-title > span {
+  cursor: pointer;
+  font-size: 29px;
+}
+
+.book > span {
+  cursor: pointer;
+}
+
+.title {
+  font-size: 32px;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+.subject > span:hover {
+  color: grey;
+}
+
+.book > span {
+  float: left;
+}
+
+.book > span:hover {
+  color: grey;
+}
+.subject-title > span:hover {
+  color: grey;
+}
+
+.text {
+  font-size: large;
+  text-align: center;
+}
+
+.book {
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 26px;
+  line-height: 30px;
+}
