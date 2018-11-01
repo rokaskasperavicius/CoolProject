@@ -32,7 +32,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.resolve(__dirname, './client/build')));
 
 app.get('*', (request, response) => {
-  response.sendFile(path.join(__dirname, '../client/build', 'index.html'));
+  response.sendFile(path.join(__dirname, './client/build', 'index.html'));
 });
 
 app.post('/login', (req, res) => {
