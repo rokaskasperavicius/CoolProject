@@ -1,11 +1,13 @@
-import { SEND_USER, CLEAR } from '../Constants/Action-Types';
+import { SEND_USER, CLEAR, SEND_TOKEN } from '../Constants/Action-Types';
 
-const state = (state = { logged_user: [] }, action) => {
+const state = (state = { user: [], token: '' }, action) => {
   switch (action.type) {
     case SEND_USER:
-      return { ...state, logged_user: action.payload };
+      return { ...state, user: action.payload };
+    case SEND_TOKEN:
+      return { ...state, token: action.payload };
     case CLEAR:
-      return { ...state, logged_user: action.payload };
+      return { ...state, user: action.payload, token: action.payload };
     default:
       return state;
   }

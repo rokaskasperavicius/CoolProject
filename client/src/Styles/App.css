@@ -55,11 +55,6 @@ h4, h3, h2, h1 {
   color: grey;
 }
 
-.text {
-  font-size: large;
-  text-align: center;
-}
-
 .book {
   max-width: 500px;
   margin-left: auto;

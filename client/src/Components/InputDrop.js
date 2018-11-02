@@ -1,7 +1,7 @@
 import React from 'react'
-import { Input } from 'semantic-ui-react'
+import { Dropdown } from 'semantic-ui-react'
 
-export const renderField = ({
+export const renderFieldDrop = ({
   input,
   type,
   label,
@@ -11,17 +11,14 @@ export const renderField = ({
   transparent,
   meta: { touched, error, warning }
 }) => (
-  <section>
-    <label className="label" style={{ fontWeight: "bold" }}>{label}</label>
-    <Input
-      {...input}
-      placeholder={placeholder}
-      type={type}
-      disabled={disabled}
+  <div>
+    <label className="label">{label}</label>
+    <Dropdown 
       transparent={transparent}
-      className={touched ? 'text error-text' : 'text'}
+      selection
+      options={[{ key: 'af', value: 'af', flag: 'af', text: 'Afghanistan' }]}
       autoComplete={autoComplete}
     />
     {touched && ((error && <div style={{ color: 'red' }} className="error">{error}</div>) || (warning && <div className="error">{warning}</div>))}
-  </section>
+  </div>
 );
