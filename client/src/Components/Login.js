@@ -16,15 +16,14 @@ class Login extends React.Component {
     const values = this.props.formValues;
 
     return login(values).then(properties => {
-      console.log(properties);
-      if (properties.value) {
+      if (properties && properties.value) {
         NotificationManager.success('You have successfully logged in!', '', timeout);
 
         this.props.sendUser(properties.value);
         this.props.sendToken(properties.token);
         setToken(properties.token);
         this.props.history.push('/');
-      } else {
+      } else if (properties && properties.error) {
         NotificationManager.error(properties.error, '', timeout);
       }
     })

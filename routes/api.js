@@ -24,8 +24,10 @@ app.post('/login', (req, res) => {
       const error = 'Wrong credentials!';
  
       if (value && value.password === password) {
+        client.end();
         res.json({ value, token });
       } else {
+        client.end();
         res.json({ error, token });
       }
     });
@@ -44,6 +46,7 @@ app.post('/userAdd', (req, res) => {
   client.query('INSERT INTO users(name, lastname, password, role, username, firstime) values(\'' + values.name + '\', \'' + values.lastname + '\', \'' + values.password + '\', \'' + values.role + '\', \'' + values.username + '\', \'' + 'true' + '\')', (err, result) => {
     if (err) throw err;
 
+    client.end();
     res.json('Success');
   })
 })
@@ -62,6 +65,7 @@ app.post('/userUpdate', (req, res) => {
   client.query('UPDATE users SET name=\'' + values.name + '\', lastname=\'' + values.lastname + '\', password=\'' + values.password + '\', username=\'' + values.username + '\', firstime=\'' + 'false' + '\' WHERE id = ' + values.id, (err, resulr) => {
     if (err) throw err;
 
+    client.end();
     res.json('Success');
   })
 })
@@ -79,6 +83,7 @@ app.post('/data', (req, res) => {
   client.query('UPDATE data SET name=\'' + values.name + '\', lastname=\'' + values.lastname + '\', age=\'' + values.age + '\', height=\'' + values.height + '\', weight=\'' + values.weight + '\' WHERE id = ' + values.id, (err, resulr) => {
     if (err) throw err;
 
+    client.end();
     res.json('Success');
   })
 })
@@ -94,6 +99,7 @@ app.get('/data', (req, res) => {
   client.query('SELECT * FROM data', (err, result) => {
     if (err) throw err;
 
+    client.end();
     res.json(result.rows);
   })
 })
