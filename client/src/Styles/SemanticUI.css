@@ -36,16 +36,39 @@
   float: left;
 }
 
-.ui.form .field>label {
+.ui.form .field > label {
   font-size: 28px;
   font-weight: unset;
   margin: unset;
   display: unset;
 }
 
-.ui.modal {
-  position: absolute;
-  top: 15%;
+.ui.modal > .content {
+  position: fixed;
+  overflow-y:scroll;
+  height: 100%;
+}
+
+.text--modal {
+  font-size: 25px;
+  width: 100%;
+  font-weight: bold;
+  margin-bottom: 40px;
+}
+
+.dimmed.dimmable > .ui.animating.dimmer, .dimmed.dimmable > .ui.visible.dimmer, .ui.active.dimmer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ui.modal,
+.ui.active.modal {
+  top: auto !important;
+  height: 100% !important;
+  margin: 0 auto !important;
+  left: auto !important;
+  transform-origin: center !important;
+  transition: all ease .5s;
 }
 
 .ui.modal > .header {

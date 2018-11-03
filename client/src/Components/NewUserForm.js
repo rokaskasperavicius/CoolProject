@@ -26,6 +26,7 @@ class NewUserForm extends React.Component {
 
     return (
       <section className="app">
+        <div className="text">Welcome! Here you can change your data</div>
         <Form onSubmit={handleSubmit(() => this.onUserUpdate())}>
           <Field
             name="name"

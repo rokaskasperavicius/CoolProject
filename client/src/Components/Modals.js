@@ -27,7 +27,7 @@ class Modals extends React.Component {
       open={open}
       onClose={onClose}
     >
-      <Modal.Header>{title}</Modal.Header>
+      {/* <Modal.Header>{title}</Modal.Header> */}
       <Modal.Content className="modal-content">
       {Content !== undefined ?
         <Content onClose={() => this.onClose()}/> : <div></div>}

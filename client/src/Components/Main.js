@@ -2,7 +2,7 @@ import React from 'react'
 import Modals from './Modals'
 import AddUserForm from './AddUserForm';
 import NewUserForm from './NewUserForm';
-import { Button } from 'semantic-ui-react'
+import { Button, Table } from 'semantic-ui-react'
 import { renderField }from './Input'
 import { Field, reduxForm, getFormValues, getFormSyncErrors, Form } from 'redux-form'
 import { connect } from 'react-redux'
@@ -74,24 +74,23 @@ class Main extends React.Component {
     const { open, title, content } = this.state;
 
     return (
-      <div>
-        <section className="app">
-          {role === undefined ? <div className="text">Your role is Guest</div> : <div className="text">Your role is {role}</div>}
-          
-          <Form onSubmit={handleSubmit(() => this.onDataPOST())}>
-            <table className="ui celled table">
-              <thead>
-                <tr>
-                  <th>Name</th>
-                  <th>Last Name</th>
-                  <th>Age</th>
-                  <th>Height (cm)</th>
-                  <th>Weight (kg)</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>
+      <section className="app">
+        {role === undefined ? <div className="text">Your role is Guest</div> : <div className="text">Your role is {role}</div>}
+        <Form onSubmit={handleSubmit(() => this.onDataPOST())}>
+          <section style={{overflowX: "auto"}}>
+            <Table celled unstackable>
+              <Table.Header>
+                <Table.Row>
+                  <Table.HeaderCell>Name</Table.HeaderCell>
+                  <Table.HeaderCell>Last Name</Table.HeaderCell>
+                  <Table.HeaderCell>Age</Table.HeaderCell>
+                  <Table.HeaderCell>Height (cm)</Table.HeaderCell>
+                  <Table.HeaderCell>Weight (kg)</Table.HeaderCell>
+                </Table.Row>
+              </Table.Header>
+              <Table.Body>
+                <Table.Row>
+                  <Table.Cell>
                     <Field
                       name="name"
                       component={renderField}
@@ -101,8 +100,8 @@ class Main extends React.Component {
                       disabled={(role === 'Admin' || role === 'Name') ? false : true}
                       transparent
                     />
-                  </td>
-                  <td>
+                  </Table.Cell>
+                  <Table.Cell>
                     <Field
                       name="lastname"
                       component={renderField}
@@ -112,8 +111,8 @@ class Main extends React.Component {
                       disabled={(role === 'Admin' || role === 'LastName') ? false : true}
                       transparent
                     />
-                  </td>
-                  <td>
+                  </Table.Cell>
+                  <Table.Cell>
                     <Field
                       name="age"
                       component={renderField}
@@ -124,8 +123,8 @@ class Main extends React.Component {
                       disabled={(role === 'Admin' || role === 'Age') ? false : true}
                       transparent
                     />
-                  </td>
-                  <td>
+                  </Table.Cell>
+                  <Table.Cell>
                     <Field
                       name="height"
                       component={renderField}
@@ -136,8 +135,8 @@ class Main extends React.Component {
                       disabled={(role === 'Admin' || role === 'Height') ? false : true}
                       transparent
                     />
-                  </td>
-                  <td>
+                  </Table.Cell>
+                  <Table.Cell>
                     <Field
                       name="weight"
                       component={renderField}
@@ -148,42 +147,42 @@ class Main extends React.Component {
                       disabled={(role === 'Admin' || role === 'Weight') ? false : true}
                       transparent
                     />
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-            {role !== undefined ? 
-              <Button
-                content='Submit'
-                loading={submitting}
-                disabled={Object.keys(formErrors).length !== 0 || submitting}
-              /> : ''}
+                  </Table.Cell>
+                </Table.Row>
+              </Table.Body>
+            </Table>
+          </section>
+          {role !== undefined && 
+            <Button
+              content='Submit'
+              loading={submitting}
+              disabled={Object.keys(formErrors).length !== 0 || submitting}
+            />}
 
-              {role !== undefined ?
-              <Button
-                content='Reset'
-                onClick={e => this.onDataReset(e)}
-              /> : ''}
+            {role !== undefined &&
+            <Button
+              content='Reset'
+              onClick={e => this.onDataReset(e)}
+            />}
 
-              {role === 'Admin' ?
-              <Button
-                content='Add User'
-                style={{ width: "130px" }}
-                onClick={e => {
-                  e.preventDefault() 
-                  this.onModalOpen(userAdd, AddUserForm)
-                }}
-              /> : ''}
-          </Form>
-          <Modals
-            open={open}
-            title={title}
-            content={content}
-            onClose={() => this.onModalClose()}
-          >
-          </Modals>
-        </section>   
-      </div>
+            {role === 'Admin' &&
+            <Button
+              content='Add User'
+              style={{ width: "130px" }}
+              onClick={e => {
+                e.preventDefault() 
+                this.onModalOpen(userAdd, AddUserForm)
+              }}
+            />}
+        </Form>
+        <Modals
+          open={open}
+          title={title}
+          content={content}
+          onClose={() => this.onModalClose()}
+        >
+        </Modals>
+      </section>   
     );
   }
 }

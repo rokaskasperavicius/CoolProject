@@ -24,6 +24,7 @@ class AddUserForm extends React.Component {
 
     return (
       <section className="app">
+        <div className="text--modal">Add new user</div>
         <Form onSubmit={handleSubmit(() => this.onUserPost())}>
           <Field
             name="name"
