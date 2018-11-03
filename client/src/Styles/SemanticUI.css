@@ -63,10 +63,9 @@
 }
 .ui.modal,
 .ui.active.modal {
-  top: auto !important;
+  top: 0 !important;
   height: 100% !important;
-  margin: 0 auto !important;
-  left: auto !important;
+  left: 50% !important;
   transform-origin: center !important;
   transition: all ease .5s;
 }
