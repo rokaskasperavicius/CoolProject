@@ -1,8 +1,7 @@
-import React from 'react';
-import Router from './Router';
-import { NotificationManager } from 'react-notifications';
-import { connect } from "react-redux";
-import { timeout } from '../Constants/Constants';
+import React from 'react'
+import Router from './Router'
+import { connect } from 'react-redux'
+import { timeout } from '../Constants/Constants'
 
 const PrivateRouter = ({ history, layout, component, token }) => {
   return (

@@ -9,8 +9,34 @@
   font-weight: bold;
 }
 
-.error-text > input::placeholder {
+.error-text > input::placeholder, .error-text div div input::placeholder {
   color: red !important;
+}
+
+.text div div input::placeholder {
+  color: #c7c7c7;
+}
+
+.rw-widget > .rw-widget-container {
+  border: none;
+  box-shadow: none;
+}
+
+.rw-widget > .rw-widget-container:hover {
+  border: none;
+  box-shadow: none;
+}
+
+.rw-multiselect .rw-input-reset {
+  text-align: center;
+}
+
+.rw-list-option.rw-state-focus {
+  border-color: white;
+}
+
+.rw-select {
+  display: none;
 }
 
 .label {

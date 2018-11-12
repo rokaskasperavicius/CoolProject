@@ -1,5 +1,5 @@
 import React from 'react';
-import { renderField }from './Input';
+import { renderField }from '../Inputs/Input';
 import { required } from './Validation';
 import { Field, reduxForm, getFormValues, getFormSyncErrors, Form } from 'redux-form';
 import { connect } from 'react-redux';
@@ -18,7 +18,6 @@ class Login extends React.Component {
     return login(values).then(properties => {
       if (properties && properties.value) {
         NotificationManager.success('You have successfully logged in!', '', timeout);
-
         this.props.sendUser(properties.value);
         this.props.sendToken(properties.token);
         setToken(properties.token);
@@ -42,9 +41,9 @@ class Login extends React.Component {
   onLoginGuest = e => {
     e.preventDefault();
 
-    setToken('Guest');
+    this.props.sendUser({role: 'Guest'});
     this.props.sendToken('Guest');
-
+    setToken('Guest');
     this.props.history.push('/');
   }
 

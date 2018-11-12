@@ -1,11 +1,11 @@
 import React from 'react'
 import { Button } from 'semantic-ui-react'
-import { renderField }from './Input'
+import { renderField }from '../Inputs/Input'
 import { Field, reduxForm, getFormValues, getFormSyncErrors, Form } from 'redux-form'
-import { sendUser } from '../Actions/Actions';
+import { sendUser } from '../Actions/Actions'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
-import { required } from './Validation'
+import { required } from '../Components/Validation'
 import { userUPDATE } from '../API/API'
 import { NotificationManager } from 'react-notifications'
 import { timeout } from '../Constants/Constants'
@@ -65,7 +65,7 @@ class NewUserForm extends React.Component {
             transparent
           />
           <Button
-            content='Submit'
+            content="Submit"
             loading={submitting}
             disabled={Object.keys(formErrors).length !== 0 || submitting}
           />

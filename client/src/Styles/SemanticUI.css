@@ -61,6 +61,7 @@
   align-items: center;
   justify-content: center;
 }
+
 .ui.modal,
 .ui.active.modal {
   top: 0 !important;

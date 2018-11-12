@@ -1,5 +1,5 @@
-import React from 'react';
-import { Button, Modal } from 'semantic-ui-react';
+import React from 'react'
+import { Button, Modal } from 'semantic-ui-react'
 
 class Modals extends React.Component {
   constructor(props) {
@@ -30,7 +30,7 @@ class Modals extends React.Component {
       {/* <Modal.Header>{title}</Modal.Header> */}
       <Modal.Content className="modal-content">
       {Content !== undefined ?
-        <Content onClose={() => this.onClose()}/> : <div></div>}
+        <Content onClose={onClose}/> : <div></div>}
       <Button content="Cancel" onClick={onClose} />
       </Modal.Content>
     </Modal>

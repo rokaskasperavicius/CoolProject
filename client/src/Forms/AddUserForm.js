@@ -1,18 +1,19 @@
 import React from 'react'
 import { Button } from 'semantic-ui-react'
-import { renderField }from './Input'
+import { renderField }from '../Inputs/Input'
+import { renderFieldMulti }from '../Inputs/InputMulti'
 import { Field, reduxForm, getFormValues, getFormSyncErrors, Form } from 'redux-form'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
-import { required } from './Validation'
+import { required } from '../Components/Validation'
 import { userPOST } from '../API/API'
 import { NotificationManager } from 'react-notifications'
-import { timeout } from '../Constants/Constants'
+import { timeout, options } from '../Constants/Constants'
 
 class AddUserForm extends React.Component {
   onUserPost = () => {
     const values = this.props.formValues;
-
+    
     return userPOST(values).then(() => {
       NotificationManager.success('User has been added!', '', timeout);
       this.props.onClose();
@@ -20,8 +21,11 @@ class AddUserForm extends React.Component {
   }
 
   render() {
-    const { formErrors, submitting, handleSubmit } = this.props;
-
+    const { formValues, formErrors, submitting, handleSubmit } = this.props;
+    let validateMulti = true;
+    if (formValues && formValues.role && formValues.role.length <= 0) validateMulti = true;
+    else validateMulti = false;
+    
     return (
       <section className="app">
         <div className="text--modal">Add new user</div>
@@ -50,17 +54,17 @@ class AddUserForm extends React.Component {
             validate={required}
             label="Password"
             placeholder="Enter Password Here"
-            autoComplete="passwortd"
+            autoComplete="password"
             transparent
           />
           <Field
             name="role"
-            component={renderField}
-            validate={required}
+            component={renderFieldMulti}
+            validateMulti={validateMulti}
             label="Role"
             placeholder="Enter Role Here"
             autoComplete="role"
-            transparent
+            data={options}
           />
           <Field
             name="username"
@@ -74,7 +78,7 @@ class AddUserForm extends React.Component {
           <Button
             content='Submit'
             loading={submitting}
-            disabled={Object.keys(formErrors).length !== 0 || submitting}
+            disabled={Object.keys(formErrors).length !== 0 || submitting || validateMulti}
           />
         </Form>
       </section>
@@ -85,7 +89,10 @@ class AddUserForm extends React.Component {
 const mapStateToProps = state => ({
   formValues: getFormValues('userData')(state),
   formErrors: getFormSyncErrors('userData')(state),
-  user: state.state.user
+  user: state.state.user,
+  initialValues: {
+    role: []
+  }
 });
 
 const formConfig = {
