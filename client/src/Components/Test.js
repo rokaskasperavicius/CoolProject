@@ -5,7 +5,6 @@ import PrivateRouter from './PrivateRouter';
 import UserLayout from '../Layouts/UserLayout';
 import GuestLayout from '../Layouts/GuestLayout';
 import Main from './Main';
-import Test from './Test';
 import Login from './Login';
 import NotFound from './404';
 import '../App.css';
@@ -13,12 +12,7 @@ import '../App.css';
 class App extends Component {
   render() {
     return (
-      <Switch>  
-        <PrivateRouter exact path='/' layout={UserLayout} component={Main} history={this.props.history} location={this.props.location}/>
-        <Router exact path='/login' layout={GuestLayout} component={Login}/>
-        <Router exact path='/test' layout={GuestLayout} component={Test}/>
-        <Router exact path='*' layout={GuestLayout} component={NotFound}/>
-      </Switch>
+        <div>HELLO WORLD!</div>
     );
   }
 }

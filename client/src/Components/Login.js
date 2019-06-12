@@ -36,6 +36,10 @@ class Login extends React.Component {
 
     this.props.clear();
     removeToken();
+
+    fetch('https://coolproject357.herokuapp.com/api/data')
+      .then(res => res.json())
+      .then(data => console.log(data))
   }
 
   onLoginGuest = e => {
@@ -83,6 +87,11 @@ class Login extends React.Component {
             content="Guest"
             className="guest"
             onClick={e => this.onLoginGuest(e)}
+          />
+          <Button
+            content="TEST"
+            className="guest"
+            onClick={() => this.props.history.push('/test')}
           />
         </Form>
       </div>

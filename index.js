@@ -32,6 +32,10 @@ app.use(express.static(path.resolve(__dirname, './client/build')));
 
 app.use('/api', apiRouter);
 
+app.get('/test', (req, res) => {
+  res.send('NOTT THE HELLO WORLD');
+});
+
 app.get('*', (request, response) => {
   response.sendFile(path.join(__dirname, './client/build', 'index.html'));
 });
